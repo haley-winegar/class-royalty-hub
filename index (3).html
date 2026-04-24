@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Royalty Hub — Hidden Histories</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+:root {
+  --gold:       #C9921A;
+  --gold-light: #FFF8E6;
+  --gold-mid:   #F5D98A;
+  --teal:       #0E8A7A;
+  --teal-light: #E5F5F3;
+  --teal-dark:  #065A50;
+  --berry:      #7A2F99;
+  --berry-light:#F3E8FC;
+  --berry-dark: #4D1A66;
+  --rust:       #C23B15;
+  --rust-light: #FEF0EB;
+  --navy:       #1C2D4F;
+  --navy-light: #EEF1F8;
+  --ink:        #1A1A2E;
+  --body-bg:    #F5F6FA;
+  --white:      #FFFFFF;
+  --border:     #E2E5EC;
+  --muted:      #6B7280;
+  --font:       'Nunito', sans-serif;
+  --radius:     10px;
+  --shadow:     0 2px 8px rgba(0,0,0,.08);
+}
+ 
+html { scroll-behavior: smooth; }
+ 
+body {
+  font-family: var(--font);
+  background: var(--body-bg);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.6;
+}
+ 
+/* ── SITE HEADER ── */
+.site-header {
+  background: var(--navy);
+  color: white;
+  padding: 1rem 1.5rem 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+ 
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+ 
+.crown-icon {
+  font-size: 2.8rem;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.3));
+}
+ 
+.header-text h1 {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--gold-mid);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+ 
+.header-text .tagline {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.65);
+  margin-top: 0.1rem;
+}
+ 
+/* ── NAV ── */
+nav {
+  background: var(--white);
+  border-bottom: 3px solid var(--gold);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,.07);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+ 
+.nav-tab {
+  font-family: var(--font);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted);
+  padding: 0.75rem 1.15rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -3px;
+  transition: color .15s, border-color .15s, background .15s;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-block;
+}
+ 
+.nav-tab:hover { color: var(--navy); background: var(--body-bg); }
+.nav-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+ 
+/* ── PAGES ── */
+.page { display: none; max-width: 900px; margin: 0 auto; padding: 1.5rem 1.1rem 4rem; }
+.page.active { display: block; }
+ 
+/* ── PAGE HERO ── */
+.page-hero {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.4rem 1.5rem 1.2rem;
+  margin-bottom: 1.5rem;
+  border-left: 5px solid var(--gold);
+}
+ 
+.page-hero h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 0.2rem;
+}
+ 
+.page-hero .hero-sub {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+ 
+/* ── SECTION HEADERS ── */
+.section-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin: 1.6rem 0 0.6rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--border);
+}
+ 
+/* ── CARDS ── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+}
+ 
+.card-header {
+  padding: 0.7rem 1.1rem;
+  font-weight: 800;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+ 
+.card-header.gold  { background: var(--gold-light);  color: var(--gold);  border-bottom: 1px solid #F0D070; }
+.card-header.teal  { background: var(--teal-light);  color: var(--teal-dark); border-bottom: 1px solid #B0DDD8; }
+.card-header.berry { background: var(--berry-light); color: var(--berry-dark); border-bottom: 1px solid #D0A8E8; }
+.card-header.navy  { background: var(--navy);        color: #fff; }
+.card-header.rust  { background: var(--rust);        color: #fff; }
+ 
+.card-body { padding: 0.85rem 1.1rem; }
+ 
+/* ── TODAY BANNER ── */
+.today-banner {
+  background: linear-gradient(135deg, var(--navy) 0%, #2A3F6F 100%);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.4rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+ 
+.today-date {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--gold-mid);
+  line-height: 1.1;
+  margin-bottom: 0.3rem;
+}
+ 
+.today-sub {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.55);
+}
+ 
+.week-badge {
+  background: rgba(201,146,26,.25);
+  border: 1.5px solid rgba(201,146,26,.5);
+  color: var(--gold-mid);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.8rem;
+  border-radius: 2rem;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+ 
+/* ── READING BAR ── */
+.reading-bar {
+  background: var(--gold-light);
+  border: 1.5px solid #F0D070;
+  border-radius: var(--radius);
+  padding: 0.8rem 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+ 
+.reading-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 0.1rem; }
+.reading-pages { font-size: 1.05rem; font-weight: 800; color: #7A5500; }
+ 
+/* ── TWO-UP SESSION GRID ── */
+.session-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+@media(max-width: 560px){ .session-grid { grid-template-columns: 1fr; } }
+ 
+.session-box {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1.5px solid var(--border);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+ 
+.session-box-head {
+  padding: 0.55rem 0.9rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+ 
+.session-box.lit  .session-box-head { background: var(--teal);  color: #fff; }
+.session-box.thm  .session-box-head { background: var(--berry); color: #fff; }
+ 
+.session-box-body { padding: 0.65rem 0.9rem; }
+.session-title { font-weight: 800; font-size: 0.88rem; color: var(--ink); margin-bottom: 0.15rem; line-height: 1.3; }
+.session-info  { font-size: 0.75rem; color: var(--muted); }
+ 
+/* ── DAILY PRACTICE ── */
+.daily-practice {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+ 
+.daily-practice .dp-head {
+  background: var(--teal);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+ 
+.dp-list { padding: 0.6rem 1rem 0.75rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+ 
+.dp-item {
+  background: var(--teal-light);
+  border: 1.5px solid #B0DDD8;
+  border-radius: 2rem;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--teal-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+ 
+/* ── OV GRID (overview cards) ── */
+.ov-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-bottom: 1rem; }
+@media(max-width:560px){ .ov-grid { grid-template-columns: 1fr; } }
+ 
+.ov-card { background: var(--white); border-radius: var(--radius); border: 1.5px solid var(--border); overflow: hidden; box-shadow: var(--shadow); }
+.ov-card-head { padding: 0.6rem 1rem; font-weight: 800; font-size: 0.85rem; display: flex; align-items: center; gap: 0.4rem; }
+.ov-card.lit  .ov-card-head { background: var(--teal);  color: #fff; }
+.ov-card.thm  .ov-card-head { background: var(--berry); color: #fff; }
+.ov-card-body { padding: 0.75rem 1rem; }
+.ov-tag { display: inline-block; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; padding: 0.18rem 0.55rem; border-radius: 0.3rem; margin-bottom: 0.6rem; }
+.ov-tag.lit { background: var(--teal-light); color: var(--teal-dark); }
+.ov-tag.thm { background: var(--berry-light); color: var(--berry-dark); }
+.ov-item { display: flex; gap: 0.5rem; padding: 0.3rem 0; font-size: 0.83rem; line-height: 1.45; color: #374151; border-bottom: 1px dashed var(--border); align-items: flex-start; }
+.ov-item:last-child { border-bottom: none; }
+.ov-dot { width: 7px; height: 7px; border-radius: 50%; margin-top: 0.46rem; flex-shrink: 0; }
+.ov-dot.l { background: var(--teal); }
+.ov-dot.t { background: var(--berry); }
+ 
+/* ── JOBS ── */
+.jobs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-bottom: 1rem; }
+@media(max-width:480px){ .jobs-grid { grid-template-columns: 1fr; } }
+ 
+.job-card { background: var(--white); border-radius: var(--radius); border: 1.5px solid var(--border); overflow: hidden; box-shadow: var(--shadow); }
+.job-card-head { padding: 0.6rem 1rem; font-weight: 800; font-size: 0.85rem; display: flex; align-items: center; gap: 0.4rem; }
+.job-card.lit .job-card-head { background: var(--teal);  color: #fff; }
+.job-card.thm .job-card-head { background: var(--berry); color: #fff; }
+.job-card-body { padding: 0.45rem 0.9rem; }
+.job-row { display: flex; justify-content: space-between; align-items: center; padding: 0.38rem 0; border-bottom: 1px solid var(--border); font-size: 0.84rem; }
+.job-row:last-child { border-bottom: none; }
+.j-role { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.j-name { font-weight: 800; }
+.j-name.lit { color: var(--teal-dark); }
+.j-name.thm { color: var(--berry-dark); }
+.j-name.co  { color: var(--rust); }
+ 
+/* ── WEEK VIEW ── */
+.week-view { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; box-shadow: var(--shadow); margin-bottom: 1rem; }
+.week-view-head { background: var(--navy); color: #fff; padding: 0.7rem 1.1rem; font-size: 0.88rem; font-weight: 800; display: flex; align-items: center; gap: 0.4rem; }
+.week-day { border-bottom: 1px solid var(--border); }
+.week-day:last-child { border-bottom: none; }
+.week-day.is-today { background: #FFFCE8; }
+.week-day-header { display: grid; grid-template-columns: 115px 1fr auto; align-items: center; gap: 0.5rem; padding: 0.55rem 1rem; border-bottom: 1px dashed var(--border); }
+.wd-name  { font-weight: 800; font-size: 0.82rem; color: var(--ink); }
+.wd-name.today { color: var(--gold); }
+.wd-read  { font-size: 0.75rem; font-weight: 700; color: var(--rust); }
+.wd-label { font-size: 0.68rem; color: var(--muted); text-align: right; }
+.week-sessions { display: grid; grid-template-columns: 1fr 1fr; }
+@media(max-width:500px){ .week-sessions { grid-template-columns: 1fr; } }
+.ws { padding: 0.55rem 1rem; font-size: 0.8rem; }
+.ws.lit { border-right: 1px solid var(--border); }
+.ws-label { font-size: 0.63rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.18rem; }
+.ws.lit .ws-label { color: var(--teal); }
+.ws.thm .ws-label { color: var(--berry); }
+.ws-name { font-weight: 700; font-size: 0.83rem; color: var(--ink); margin-bottom: 0.1rem; line-height: 1.3; }
+.ws-info { font-size: 0.7rem; color: var(--muted); }
+.ws-none { font-size: 0.78rem; color: #C0C0C8; font-style: italic; }
+ 
+/* ── IMPORTANT DATES ── */
+.dates-table-wrap { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; box-shadow: var(--shadow); margin-bottom: 1rem; }
+.dates-head { background: var(--navy); color: #fff; padding: 0.65rem 1.1rem; font-size: 0.85rem; font-weight: 800; display: flex; align-items: center; gap: 0.4rem; }
+ 
+/* ── TABLES ── */
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; background: var(--white); }
+.data-table th { padding: 0.5rem 0.85rem; text-align: left; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); background: #F8F9FB; border-bottom: 2px solid var(--border); }
+.data-table td { padding: 0.45rem 0.85rem; border-bottom: 1px solid var(--border); color: #374151; vertical-align: top; }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: #FAFBFF; }
+.wk-sep td { background: var(--gold-light) !important; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); padding: 0.3rem 0.85rem; }
+.row-today-lit td  { background: #EAF7F4 !important; }
+.row-today-lit td:first-child  { border-left: 3px solid var(--teal); }
+.row-today-thm td  { background: #F3E9FC !important; }
+.row-today-thm td:first-child  { border-left: 3px solid var(--berry); }
+.n-lit { color: var(--teal-dark); font-weight: 800; }
+.n-thm { color: var(--berry-dark); font-weight: 800; }
+.n-co  { color: var(--rust); font-weight: 800; }
+ 
+/* ── READING CALENDAR ── */
+.cal-outer { border-radius: var(--radius); overflow: hidden; border: 2px solid #F0C0A8; margin-bottom: 1rem; box-shadow: var(--shadow); }
+.cal-top { background: var(--rust); color: #fff; padding: 0.65rem 1.1rem; font-size: 0.88rem; font-weight: 800; display: flex; align-items: center; gap: 0.4rem; }
+.cal-scroll { overflow-x: auto; }
+.cal { width: 100%; border-collapse: collapse; min-width: 380px; background: var(--white); }
+.cal th { padding: 0.45rem 0.3rem; text-align: center; font-size: 0.67rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #fff; background: var(--rust); }
+.cal th:nth-child(2) { filter: brightness(1.08); }
+.cal th:nth-child(3) { filter: brightness(1.16); }
+.cal th:nth-child(4) { filter: brightness(1.22); }
+.cal th:nth-child(5) { filter: brightness(1.28); }
+.cal td { padding: 0.5rem 0.3rem; text-align: center; border: 1px solid var(--border); font-size: 0.74rem; vertical-align: top; line-height: 1.3; min-width: 62px; }
+.cal-dn { display: block; font-size: 0.6rem; color: var(--muted); font-weight: 700; margin-bottom: 0.08rem; }
+.cal-pg { display: block; font-weight: 800; color: #8B2800; }
+.cal-no { color: #C0C0C8; font-size: 0.68rem; }
+.cal-cu { color: var(--teal-dark); font-style: italic; font-size: 0.68rem; font-weight: 700; }
+.cal-today { background: #FFF8E8 !important; }
+ 
+/* ── SCHEDULE ── */
+.sched-outer { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); margin-bottom: 1rem; box-shadow: var(--shadow); }
+.sched-top { background: var(--navy); color: #fff; padding: 0.7rem 1.1rem; font-size: 0.88rem; font-weight: 800; display: flex; align-items: center; gap: 0.4rem; }
+.wk-label { background: var(--gold-light); padding: 0.3rem 1.1rem; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); border-bottom: 1px solid #F0D070; }
+.sched-row { display: grid; grid-template-columns: 95px 1fr; border-bottom: 1px solid var(--border); background: var(--white); }
+.sched-row:last-child { border-bottom: none; }
+.sched-row.today-row { background: #FFFCE8; }
+.s-day { padding: 0.45rem 0.75rem; font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); border-right: 1px solid var(--border); display: flex; align-items: center; }
+.s-day.today { color: var(--gold); }
+.s-body { padding: 0.45rem 0.9rem; line-height: 1.35; }
+.s-num { font-weight: 800; font-size: 0.75rem; margin-right: 0.25rem; }
+.s-num.l { color: var(--teal-dark); }
+.s-num.t { color: var(--berry-dark); }
+.s-title { font-weight: 700; color: var(--ink); font-size: 0.84rem; }
+.s-sub { font-size: 0.7rem; color: var(--muted); margin-top: 0.04rem; }
+ 
+/* ── BADGES ── */
+.badge { display: inline-block; font-size: 0.6rem; font-weight: 800; padding: 0.1rem 0.38rem; border-radius: 0.3rem; margin-left: 0.3rem; vertical-align: middle; letter-spacing: 0.04em; }
+.badge.br   { background: var(--gold-light);   color: var(--gold);      border: 1px solid #F0D070; }
+.badge.fb   { background: var(--teal-light);   color: var(--teal-dark); border: 1px solid #B0DDD8; }
+.badge.jam  { background: var(--berry-light);  color: var(--berry-dark);border: 1px solid #D0A8E8; }
+.badge.disc { background: var(--navy-light);   color: var(--navy);      border: 1px solid #B0BFD8; }
+.badge.expo { background: var(--teal-light);   color: var(--teal-dark); border: 1px solid #B0DDD8; }
+.badge.camp { background: var(--rust-light);   color: var(--rust);      border: 1px solid #F0C0A8; }
+ 
+/* ── LINK CARD ── */
+.link-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow);
+  margin-bottom: 0.85rem;
+}
+.link-label { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.12rem; }
+.link-card a { font-weight: 800; font-size: 0.9rem; color: var(--teal); text-decoration: none; }
+.link-card a:hover { text-decoration: underline; }
+.link-note { font-size: 0.73rem; color: var(--muted); text-align: right; }
+ 
+/* ── NOTICE ── */
+.notice {
+  background: var(--gold-light);
+  border: 1.5px solid #F0D070;
+  border-radius: var(--radius);
+  padding: 0.8rem 1rem;
+  font-size: 0.84rem;
+  color: #7A5500;
+  line-height: 1.5;
+  margin-bottom: 0.9rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+ 
+/* ── PARENTS ── */
+.parents-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media(max-width:640px){ .parents-grid { grid-template-columns: 1fr; } }
+ 
+.pw-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.pw-head { background: var(--navy); color: #fff; padding: 0.7rem 1.1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.3rem; }
+.pw-title { font-weight: 800; font-size: 0.88rem; }
+.pw-sub   { font-size: 0.68rem; color: rgba(255,255,255,.55); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
+.pw-body  { padding: 0.85rem 1rem; }
+.skill-block { margin-bottom: 0.7rem; }
+.skill-block:last-child { margin-bottom: 0; }
+.skill-block-head { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.18rem 0.55rem; border-radius: 0.3rem; display: inline-block; margin-bottom: 0.3rem; }
+.skill-block.lit .skill-block-head { background: var(--teal-light); color: var(--teal-dark); }
+.skill-block.thm .skill-block-head { background: var(--berry-light); color: var(--berry-dark); }
+.skill-block.chk .skill-block-head { background: var(--gold-light); color: var(--gold); }
+.skill-block p  { font-size: 0.8rem; color: #374151; line-height: 1.5; }
+.skill-block ul { list-style: none; font-size: 0.8rem; color: #374151; line-height: 1.75; }
+.skill-block ul li::before { content: '☐ '; color: var(--gold); font-weight: 800; }
+.ask-box { background: var(--gold-light); border-radius: 8px; padding: 0.6rem 0.85rem; margin-top: 0.75rem; }
+.ask-label { font-size: 0.63rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 0.3rem; }
+.ask-box ol { font-size: 0.77rem; color: #374151; line-height: 1.6; padding-left: 1.1rem; }
+ 
+/* ── ROLES ── */
+.roles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px,1fr)); gap: 0.9rem; margin-bottom: 1.5rem; }
+.role-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.1rem; text-align: center; box-shadow: var(--shadow); transition: box-shadow .2s, transform .2s; }
+.role-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.12); transform: translateY(-2px); }
+.role-card:nth-child(1) { border-top: 3px solid var(--gold); }
+.role-card:nth-child(2) { border-top: 3px solid var(--teal); }
+.role-card:nth-child(3) { border-top: 3px solid var(--berry); }
+.role-card:nth-child(4) { border-top: 3px solid var(--rust); }
+.role-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+.role-card h3 { font-weight: 800; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.3rem; }
+.role-card p  { font-size: 0.78rem; color: var(--muted); line-height: 1.5; margin-bottom: 0.55rem; }
+.role-chip { display: inline-block; font-size: 0.63rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; padding: 0.18rem 0.6rem; border-radius: 2rem; }
+.role-card:nth-child(1) .role-chip { background: var(--gold-light); color: var(--gold); }
+.role-card:nth-child(2) .role-chip { background: var(--teal-light); color: var(--teal-dark); }
+.role-card:nth-child(3) .role-chip { background: var(--berry-light); color: var(--berry-dark); }
+.role-card:nth-child(4) .role-chip { background: var(--rust-light); color: var(--rust); }
+ 
+.find-name-bar { background: var(--navy); border-radius: var(--radius); padding: 0.9rem 1.25rem; display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.5rem; font-weight: 800; font-size: 0.92rem; color: #fff; box-shadow: var(--shadow); }
+ 
+/* ── PROJECT OPTIONS ── */
+.proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px,1fr)); gap: 0.9rem; margin-bottom: 1.25rem; }
+.proj-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: box-shadow .2s, transform .2s; }
+.proj-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.12); transform: translateY(-2px); }
+.proj-card:nth-child(1) { border-top: 3px solid var(--gold); }
+.proj-card:nth-child(2) { border-top: 3px solid var(--teal); }
+.proj-card:nth-child(3) { border-top: 3px solid var(--berry); }
+.proj-top { padding: 1.35rem 1.1rem 0.9rem; text-align: center; }
+.proj-icon { font-size: 2.2rem; margin-bottom: 0.45rem; }
+.proj-card h3 { font-weight: 800; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.3rem; }
+.proj-card p  { font-size: 0.78rem; color: var(--muted); line-height: 1.45; }
+.proj-foot { padding: 0.55rem 1.1rem; font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; text-align: center; border-top: 1px solid var(--border); }
+.proj-card:nth-child(1) .proj-foot { background: var(--gold-light);  color: var(--gold); }
+.proj-card:nth-child(2) .proj-foot { background: var(--teal-light);  color: var(--teal-dark); }
+.proj-card:nth-child(3) .proj-foot { background: var(--berry-light); color: var(--berry-dark); }
+ 
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+ 
+/* ── SCROLL ── */
+.scroll-x { overflow-x: auto; }
+ 
+@media(max-width:640px){
+  .site-header { padding: 0.9rem 1rem; }
+  .header-text h1 { font-size: 1.2rem; }
+  .crown-icon { font-size: 2rem; }
+}
+</style>
+</head>
+<body>
+ 
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-logo">
+    <div class="crown-icon">👑</div>
+    <div class="header-text">
+      <h1>Class Royalty Hub</h1>
+      <div class="tagline">Hidden Histories · Cycle 5</div>
+    </div>
+  </div>
+</header>
+ 
+<!-- NAV -->
+<nav>
+  <button class="nav-tab active" onclick="showTab('today',this)">🏠 Today</button>
+  <button class="nav-tab" onclick="showTab('literacy',this)">📚 Literacy Lab</button>
+  <button class="nav-tab" onclick="showTab('theme',this)">🎨 Theme Workshop</button>
+  <a class="nav-tab" href="https://classroom.google.com/c/Nzc0MDk2MjYwMDAx" target="_blank">🎓 Google Classroom</a>
+  <button class="nav-tab" onclick="showTab('parents',this)">👨‍👩‍👧 Parents</button>
+</nav>
+ 
+ 
+<!-- ═══════════════════ TODAY ═══════════════════ -->
+<div id="today" class="page active">
+  <div class="page-hero">
+    <h2>Today 👑</h2>
+    <div class="hero-sub">Learning together, one step at a time</div>
+  </div>
+  <div id="today-content"><!-- rendered by JS --></div>
+</div>
+ 
+ 
+<!-- ═══════════════════ LITERACY LAB ═══════════════════ -->
+<div id="literacy" class="page">
+  <div class="page-hero">
+    <h2>📚 Literacy Lab</h2>
+    <div class="hero-sub">Reading, writing, and sharing ideas</div>
+  </div>
+ 
+  <div class="section-title">Reading Calendar &amp; Book Link</div>
+  <div class="link-card">
+    <div>
+      <div class="link-label">One Last Word — digital copy</div>
+      <a href="https://drive.google.com/file/d/1UUTqs_-cqNuvgkLL2wkO8RVBttoRMErt/view" target="_blank">Open in Google Drive ↗</a>
+    </div>
+    <div class="link-note">Reading wraps up by Tuesday, May 5 so the last<br>week can focus on creating and celebrating.</div>
+  </div>
+ 
+  <div class="cal-outer">
+    <div class="cal-top">📖 One Last Word · Reading Schedule</div>
+    <div class="cal-scroll">
+      <table class="cal">
+        <tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th></tr>
+        <tr>
+          <td><span class="cal-dn">Apr 6</span><span class="cal-no">No Prisma</span></td>
+          <td><span class="cal-dn">Apr 7 ★</span><span class="cal-pg">pp. 1–4</span></td>
+          <td><span class="cal-dn">Apr 8</span><span class="cal-pg">pp. 5–7</span></td>
+          <td><span class="cal-dn">Apr 9</span><span class="cal-pg">pp. 11–13</span></td>
+          <td><span class="cal-dn">Apr 10</span><span class="cal-pg">pp. 15–17</span></td>
+        </tr>
+        <tr>
+          <td><span class="cal-dn">Apr 13</span><span class="cal-pg">pp. 18–23</span></td>
+          <td><span class="cal-dn">Apr 14</span><span class="cal-pg">pp. 25–27</span></td>
+          <td><span class="cal-dn">Apr 15</span><span class="cal-pg">pp. 31–33</span></td>
+          <td><span class="cal-dn">Apr 16</span><span class="cal-pg">pp. 34–37</span></td>
+          <td><span class="cal-dn">Apr 17</span><span class="cal-cu">Catch up!</span></td>
+        </tr>
+        <tr>
+          <td><span class="cal-dn">Apr 20</span><span class="cal-pg">pp. 38–45</span></td>
+          <td><span class="cal-dn">Apr 21</span><span class="cal-pg">pp. 47–49</span></td>
+          <td><span class="cal-dn">Apr 22</span><span class="cal-pg">pp. 51–55</span></td>
+          <td><span class="cal-dn">Apr 23</span><span class="cal-pg">pp. 56–63</span></td>
+          <td><span class="cal-dn">Apr 24</span><span class="cal-cu">Catch up!</span></td>
+        </tr>
+        <tr>
+          <td><span class="cal-dn">Apr 27</span><span class="cal-pg">pp. 65–67</span></td>
+          <td><span class="cal-dn">Apr 28</span><span class="cal-pg">pp. 70–75</span></td>
+          <td><span class="cal-dn">Apr 29</span><span class="cal-pg">pp. 77–83</span></td>
+          <td><span class="cal-dn">Apr 30</span><span class="cal-pg">pp. 85–89</span></td>
+          <td><span class="cal-dn">May 1</span><span class="cal-cu">Catch up!</span></td>
+        </tr>
+        <tr>
+          <td><span class="cal-dn">May 4</span><span class="cal-pg">pp. 90–93</span></td>
+          <td><span class="cal-dn">May 5</span><span class="cal-pg">pp. 94–95 🎉</span></td>
+          <td><span class="cal-dn">May 6</span><span class="cal-no">Reading done</span></td>
+          <td><span class="cal-dn">May 7</span><span class="cal-no">Reading done</span></td>
+          <td><span class="cal-dn">May 8</span><span class="cal-no">Reading done</span></td>
+        </tr>
+        <tr>
+          <td><span class="cal-dn">May 11</span><span class="cal-no">Celebrate</span></td>
+          <td><span class="cal-dn">May 12</span><span class="cal-no">Final live day</span></td>
+          <td><span class="cal-dn">May 13</span><span class="cal-no">No Lit Lab</span></td>
+          <td><span class="cal-dn">May 14</span><span class="cal-no">Expo Day</span></td>
+          <td><span class="cal-dn">May 15</span><span class="cal-no">Done</span></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+ 
+  <div class="section-title">Breakout Room Overview</div>
+  <div class="card">
+    <div class="card-header teal">📚 Literacy Lab Breakout Rooms</div>
+    <div class="scroll-x">
+      <table class="data-table">
+        <tr><th>Date</th><th>Session</th><th>Breakout Room Overview</th></tr>
+        <tr><td><strong>Tue Apr 14</strong></td><td>Lyric Poem Playground</td><td>Small groups write lyric poems together and play with rhyme, repetition, and strong word choice.</td></tr>
+        <tr><td><strong>Thu Apr 16</strong></td><td>Gathering Feedback: Lyric Poems</td><td>Partner feedback rooms to share drafts, notice strengths, and suggest next steps for revision.</td></tr>
+        <tr><td><strong>Tue Apr 21</strong></td><td>Discovering Symbolism</td><td>Small groups sort mood and symbol ideas, then test them in free-verse writing practice.</td></tr>
+        <tr><td><strong>Thu Apr 23</strong></td><td>Gathering Feedback: Free Verse Poems</td><td>Feedback partners meet in rooms to revise imagery, line breaks, and message clarity.</td></tr>
+        <tr><td><strong>Tue Apr 28</strong></td><td>Poetry with a Plot</td><td>Groups brainstorm character voice, sequence of events, and details for narrative poems.</td></tr>
+        <tr><td><strong>Thu Apr 30</strong></td><td>Gathering Feedback: Narrative Poems</td><td>Partners swap drafts and coach each other on story flow, pacing, and precise details.</td></tr>
+        <tr><td><strong>Tue May 5</strong></td><td>Striking Gold!</td><td>Small groups experiment with mentor-text lines and try building golden shovel poem drafts.</td></tr>
+        <tr><td><strong>Thu May 7</strong></td><td>Gathering Feedback: Golden Shovel Poems</td><td>Feedback rooms focus on whether the borrowed line and the new poem work smoothly together.</td></tr>
+        <tr><td><strong>Mon May 11</strong></td><td>Creative Storytellers</td><td>Celebration groups rehearse sharing a favorite poem and reflect on how their writing changed this cycle.</td></tr>
+        <tr><td><strong>Tue May 12</strong></td><td>Poetry Celebration Circles</td><td>Small celebration circles share final pieces, appreciations, and favorite craft moves from the cycle.</td></tr>
+      </table>
+    </div>
+  </div>
+ 
+  <div class="section-title">Full Schedule</div>
+  <div class="sched-outer">
+    <div class="sched-top">📚 Literacy Lab — Apr 7 to May 12</div>
+    <div class="wk-label">Week 1 · Apr 7–9 · Poetry Foundations</div>
+    <div class="sched-row today-row"><div class="s-day today">Tue Apr 7</div><div class="s-body"><span class="s-num l">1</span><span class="s-title">Light Up the World with Words</span><div class="s-sub">Describe It Don't Name It · blackout poetry intro</div></div></div>
+    <div class="sched-row"><div class="s-day">Wed Apr 8</div><div class="s-body"><span class="s-num l">2</span><span class="s-title">Shining a Light on the Harlem Renaissance</span><div class="s-sub">Modern Art Match Up · Harlem Renaissance history</div></div></div>
+    <div class="sched-row"><div class="s-day">Thu Apr 9</div><div class="s-body"><span class="s-num l">3</span><span class="s-title">The Deeper Message</span><div class="s-sub">Artwork connections · what is theme?</div></div></div>
+    <div class="wk-label">Week 2 · Apr 13–16 · Lyric Poems</div>
+    <div class="sched-row"><div class="s-day">Mon Apr 13</div><div class="s-body"><span class="s-num l">4</span><span class="s-title">Lyric Lines and Big Ideas</span><div class="s-sub">Read &amp; analyze "For a Poet" by Countee Cullen</div></div></div>
+    <div class="sched-row"><div class="s-day">Tue Apr 14</div><div class="s-body"><span class="s-num l">5</span><span class="s-title">Lyric Poem Playground</span><span class="badge br">Breakouts</span><div class="s-sub">Rhyme Relay · group lyric poem writing</div></div></div>
+    <div class="sched-row"><div class="s-day">Wed Apr 15</div><div class="s-body"><span class="s-num l">6</span><span class="s-title">Poetry Jam: Lyric Edition</span><span class="badge jam">Jam</span><div class="s-sub">Sound Sketch · explore lyric poem examples</div></div></div>
+    <div class="sched-row"><div class="s-day">Thu Apr 16</div><div class="s-body"><span class="s-num l">7</span><span class="s-title">Gathering Feedback: Lyric Poems</span><span class="badge fb">Feedback</span><span class="badge br">Breakouts</span><div class="s-sub">Partner feedback meeting · revise lyric poems</div></div></div>
+    <div class="wk-label">Week 3 · Apr 20–23 · Free Verse Poems</div>
+    <div class="sched-row"><div class="s-day">Mon Apr 20</div><div class="s-body"><span class="s-num l">8</span><span class="s-title">Through the Poet's Eyes</span><div class="s-sub">Read &amp; analyze "Mother to Son" by Langston Hughes</div></div></div>
+    <div class="sched-row"><div class="s-day">Tue Apr 21</div><div class="s-body"><span class="s-num l">9</span><span class="s-title">Discovering Symbolism</span><span class="badge br">Breakouts</span><div class="s-sub">Match the Mood · free verse writing practice</div></div></div>
+    <div class="sched-row"><div class="s-day">Wed Apr 22</div><div class="s-body"><span class="s-num l">10</span><span class="s-title">Poetry Jam: Free Verse Edition</span><span class="badge jam">Jam</span><div class="s-sub">Picture to Poem · explore free verse examples</div></div></div>
+    <div class="sched-row"><div class="s-day">Thu Apr 23</div><div class="s-body"><span class="s-num l">11</span><span class="s-title">Gathering Feedback: Free Verse Poems</span><span class="badge fb">Feedback</span><span class="badge br">Breakouts</span><div class="s-sub">Partner feedback meeting · revise free verse poems</div></div></div>
+    <div class="wk-label">Week 4 · Apr 27–30 · Narrative Poems</div>
+    <div class="sched-row"><div class="s-day">Mon Apr 27</div><div class="s-body"><span class="s-num l">12</span><span class="s-title">Once Upon a Poem</span><div class="s-sub">Read &amp; analyze "A Dark Date for Josh" by Nikki Grimes</div></div></div>
+    <div class="sched-row"><div class="s-day">Tue Apr 28</div><div class="s-body"><span class="s-num l">13</span><span class="s-title">Poetry with a Plot</span><span class="badge br">Breakouts</span><div class="s-sub">Unlikely Voices · narrative poem writing practice</div></div></div>
+    <div class="sched-row"><div class="s-day">Wed Apr 29</div><div class="s-body"><span class="s-num l">14</span><span class="s-title">Poetry Jam: Narrative Edition</span><span class="badge jam">Jam</span><div class="s-sub">What Were They Trying to Say? · explore narrative examples</div></div></div>
+    <div class="sched-row"><div class="s-day">Thu Apr 30</div><div class="s-body"><span class="s-num l">15</span><span class="s-title">Gathering Feedback: Narrative Poems</span><span class="badge fb">Feedback</span><span class="badge br">Breakouts</span><div class="s-sub">Partner feedback meeting · revise narrative poems</div></div></div>
+    <div class="wk-label">Week 5 · May 4–7 · Golden Shovel Poems</div>
+    <div class="sched-row"><div class="s-day">Mon May 4</div><div class="s-body"><span class="s-num l">16</span><span class="s-title">Strike Gold in a Poem</span><div class="s-sub">Read &amp; analyze "Common Denominator" by Nikki Grimes</div></div></div>
+    <div class="sched-row"><div class="s-day">Tue May 5</div><div class="s-body"><span class="s-num l">17</span><span class="s-title">Striking Gold!</span><span class="badge br">Breakouts</span><div class="s-sub">"Life Doesn't Frighten Me" · golden shovel writing practice</div></div></div>
+    <div class="sched-row"><div class="s-day">Wed May 6</div><div class="s-body"><span class="s-num l">18</span><span class="s-title">Poetry Jam: Golden Shovel Edition</span><span class="badge jam">Jam</span><div class="s-sub">Modern Treasures · explore golden shovel examples</div></div></div>
+    <div class="sched-row"><div class="s-day">Thu May 7</div><div class="s-body"><span class="s-num l">19</span><span class="s-title">Gathering Feedback: Golden Shovel Poems</span><span class="badge fb">Feedback</span><span class="badge br">Breakouts</span><div class="s-sub">Partner feedback meeting · revise golden shovel poems</div></div></div>
+    <div class="wk-label">Week 6 · May 11–12 · Celebrate and Close the Cycle</div>
+    <div class="sched-row"><div class="s-day">Mon May 11</div><div class="s-body"><span class="s-num l">20</span><span class="s-title">Creative Storytellers</span><span class="badge camp">Celebrate</span><span class="badge br">Breakouts</span><div class="s-sub">Harlem Night Song · shine a light on Prismarian stories</div></div></div>
+    <div class="sched-row"><div class="s-day">Tue May 12</div><div class="s-body"><span class="s-num l">21</span><span class="s-title">Poetry Celebration Circles</span><span class="badge camp">Celebrate</span><span class="badge br">Breakouts</span><div class="s-sub">Share favorite poems, reflect, and wrap the cycle</div></div></div>
+  </div>
+</div>
+ 
+ 
+<!-- ═══════════════════ THEME WORKSHOP ═══════════════════ -->
+<div id="theme" class="page">
+  <div class="page-hero">
+    <h2>🎨 Theme Workshop</h2>
+    <div class="hero-sub">Projects, inquiry, and big ideas</div>
+  </div>
+ 
+  <div class="section-title">Theme Breakout Room Overview</div>
+  <div class="card">
+    <div class="card-header berry">🎨 Theme Workshop Breakout Rooms</div>
+    <div class="scroll-x">
+      <table class="data-table">
+        <tr><th>Date</th><th>Session</th><th>Breakout Room Overview</th></tr>
+        <tr><td><strong>Wed Apr 8</strong></td><td>Setting the Stage</td><td>Research teams use 5W1H to gather key facts about the Age of Exploration and study a sundial artifact.</td></tr>
+        <tr><td><strong>Thu Apr 9</strong></td><td>Curiosity &amp; Competition</td><td>Groups prepare arguments to "Convince the Monarch" and decide which voyages deserve support.</td></tr>
+        <tr><td><strong>Tue Apr 14</strong></td><td>How Trade Remixed the World</td><td>Small groups tackle the lunch challenge and trade-simulation choices to see how exchange reshaped daily life.</td></tr>
+        <tr><td><strong>Thu Apr 16</strong></td><td>In My Opinion</td><td>Discussion groups practice making claims, listening, and backing up opinions with reasons.</td></tr>
+        <tr><td><strong>Wed Apr 22</strong></td><td>Primary and Secondary</td><td>Research groups sort and analyze sources as they launch their hidden-history projects.</td></tr>
+        <tr><td><strong>Thu Apr 23</strong></td><td>I Know Because…</td><td>Breakouts build claims and evidence about why hidden histories matter.</td></tr>
+        <tr><td><strong>Tue Apr 28</strong></td><td>Research Support Day</td><td>Project groups search for pieces, compare options, and choose sources that fit their story.</td></tr>
+        <tr><td><strong>Thu Apr 30</strong></td><td>I (Respectfully) Disagree!</td><td>Small groups rehearse respectful disagreement, follow-up questions, and evidence-based responses.</td></tr>
+        <tr><td><strong>Mon May 4</strong></td><td>Outlining</td><td>Workshop groups map project ideas, personal statements, and the structure of monument, gallery, or exhibit plans.</td></tr>
+        <tr><td><strong>Tue May 5</strong></td><td>Giving Feedback</td><td>Partner feedback meetings help learners sharpen project choices and improve clarity.</td></tr>
+        <tr><td><strong>Thu May 7</strong></td><td>Strengthen Your Claim!</td><td>Partners question one another to strengthen final claims before the last week.</td></tr>
+        <tr><td><strong>Mon May 11</strong></td><td>The Final Discussion</td><td>Discussion circles weigh whether the Age of Exploration created more opportunities or more problems.</td></tr>
+        <tr><td><strong>Tue May 12</strong></td><td>Prisma Powers!</td><td>Small groups reflect, share appreciations, and polish last details before Expo prep.</td></tr>
+        <tr><td><strong>Wed May 13</strong></td><td>Expo Day Prep</td><td>Project teams rehearse presentations, give last-minute notes, and tighten display choices.</td></tr>
+      </table>
+    </div>
+  </div>
+ 
+  <div class="section-title">Full Schedule</div>
+  <div class="sched-outer">
+    <div class="sched-top">🎨 Theme Workshop — Apr 7 to May 14</div>
+    <div class="wk-label">Week 1 · Apr 7–9 · Hidden Histories Intro</div>
+    <div class="sched-row today-row"><div class="s-day today">Tue Apr 7</div><div class="s-body"><span class="s-num t">1</span><span class="s-title">Welcome to Hidden Histories</span><div class="s-sub">Then &amp; Now · Ada Lovelace · Hidden Histories Kahoot</div></div></div>
+    <div class="sched-row"><div class="s-day">Wed Apr 8</div><div class="s-body"><span class="s-num t">2</span><span class="s-title">Setting the Stage</span><span class="badge br">Breakouts</span><div class="s-sub">Age of Exploration 5W1H research · artifact: sundial</div></div></div>
+    <div class="sched-row"><div class="s-day">Thu Apr 9</div><div class="s-body"><span class="s-num t">3</span><span class="s-title">Curiosity &amp; Competition</span><span class="badge br">Breakouts</span><div class="s-sub">Nuts for Nutmeg · The Race Is On · Convince the Monarch</div></div></div>
+    <div class="wk-label">Week 2 · Apr 13–16 · Age of Exploration Causes &amp; Effects</div>
+    <div class="sched-row"><div class="s-day">Mon Apr 13</div><div class="s-body"><span class="s-num t">4</span><span class="s-title">Technologies</span><div class="s-sub">Explorer tech deep dive · astrolabe, caravel, maps, compass</div></div></div>
+    <div class="sched-row"><div class="s-day">Tue Apr 14</div><div class="s-body"><span class="s-num t">5</span><span class="s-title">How Trade Remixed the World</span><span class="badge br">Breakouts</span><div class="s-sub">Make Your Lunch Challenge · Columbian Exchange · trade simulation</div></div></div>
+    <div class="sched-row"><div class="s-day">Wed Apr 15</div><div class="s-body"><span class="s-num t">6</span><span class="s-title">Meet the Taíno</span><div class="s-sub">Colonization history · Indigenous perspectives · hidden voices</div></div></div>
+    <div class="sched-row"><div class="s-day">Thu Apr 16</div><div class="s-body"><span class="s-num t">7</span><span class="s-title">In My Opinion</span><span class="badge disc">Discussion</span><span class="badge br">Breakouts</span><div class="s-sub">Intro to critical dialogue · forming &amp; sharing claims</div></div></div>
+    <div class="wk-label">Week 3 · Apr 20–23 · Becoming History Detectives</div>
+    <div class="sched-row"><div class="s-day">Mon Apr 20</div><div class="s-body"><span class="s-num t">8</span><span class="s-title">Becoming History Detectives</span><div class="s-sub">Common story vs. hidden histories · what's underneath?</div></div></div>
+    <div class="sched-row"><div class="s-day">Tue Apr 21</div><div class="s-body"><span class="s-num t">9</span><span class="s-title">How Do Historians Know?</span><div class="s-sub">Source types: artifacts, visual sources, written sources</div></div></div>
+    <div class="sched-row"><div class="s-day">Wed Apr 22</div><div class="s-body"><span class="s-num t">10</span><span class="s-title">Primary and Secondary</span><span class="badge br">Breakouts</span><div class="s-sub">Research project launch · source analysis in groups</div></div></div>
+    <div class="sched-row"><div class="s-day">Thu Apr 23</div><div class="s-body"><span class="s-num t">11</span><span class="s-title">I Know Because…</span><span class="badge disc">Discussion</span><span class="badge br">Breakouts</span><div class="s-sub">Claim + evidence · why hidden histories matter</div></div></div>
+    <div class="wk-label">Week 4 · Apr 27–30 · Telling Your Story</div>
+    <div class="sched-row"><div class="s-day">Mon Apr 27</div><div class="s-body"><span class="s-num t">12</span><span class="s-title">Telling Hidden Histories</span><div class="s-sub">Historian's Dilemma · monument, gallery, or exhibit?</div></div></div>
+    <div class="sched-row"><div class="s-day">Tue Apr 28</div><div class="s-body"><span class="s-num t">13</span><span class="s-title">Research Support Day</span><span class="badge br">Breakouts</span><div class="s-sub">Google Arts &amp; Culture · find 2 pieces for your project</div></div></div>
+    <div class="sched-row"><div class="s-day">Wed Apr 29</div><div class="s-body"><span class="s-num t">14</span><span class="s-title">Taking Inspiration</span><div class="s-sub">Fide's Story · meet storytellers María Berrio &amp; Rangi Mātāmua</div></div></div>
+    <div class="sched-row"><div class="s-day">Thu Apr 30</div><div class="s-body"><span class="s-num t">15</span><span class="s-title">I (Respectfully) Disagree!</span><span class="badge disc">Discussion</span><span class="badge br">Breakouts</span><div class="s-sub">Listening carefully · respectful disagreement skills</div></div></div>
+    <div class="wk-label">Week 5 · May 4–7 · Building Your Project</div>
+    <div class="sched-row"><div class="s-day">Mon May 4</div><div class="s-body"><span class="s-num t">16</span><span class="s-title">Outlining</span><span class="badge br">Breakouts</span><div class="s-sub">Personal statement outline · project planning</div></div></div>
+    <div class="sched-row"><div class="s-day">Tue May 5</div><div class="s-body"><span class="s-num t">17</span><span class="s-title">Giving Feedback</span><span class="badge br">Breakouts</span><div class="s-sub">Drawing challenge · feedback criteria · partner feedback meetings</div></div></div>
+    <div class="sched-row"><div class="s-day">Wed May 6</div><div class="s-body"><span class="s-num t">18</span><span class="s-title">Wrapping It Up</span><div class="s-sub">Presentation planning · put your pieces together · Blooket!</div></div></div>
+    <div class="sched-row"><div class="s-day">Thu May 7</div><div class="s-body"><span class="s-num t">19</span><span class="s-title">Strengthen Your Claim!</span><span class="badge disc">Discussion</span><span class="badge br">Breakouts</span><div class="s-sub">Build final claim · partner questioning · prep for Monday</div></div></div>
+    <div class="wk-label">Week 6 · May 11–14 · Close, Prep, and Expo</div>
+    <div class="sched-row"><div class="s-day">Mon May 11</div><div class="s-body"><span class="s-num t">20</span><span class="s-title">The Final Discussion</span><span class="badge disc">Discussion</span><span class="badge br">Breakouts</span><div class="s-sub">Did the Age of Exploration create more opportunities or problems?</div></div></div>
+    <div class="sched-row"><div class="s-day">Tue May 12</div><div class="s-body"><span class="s-num t">21</span><span class="s-title">Prisma Powers! 🎉</span><span class="badge br">Breakouts</span><div class="s-sub">Cycle scrapbook · historian's reflection · appreciations</div></div></div>
+    <div class="sched-row"><div class="s-day">Wed May 13</div><div class="s-body"><span class="s-num t">22</span><span class="s-title">Expo Day Prep</span><span class="badge expo">Prep</span><span class="badge br">Breakouts</span><div class="s-sub">Project rehearsal and final polishing</div></div></div>
+    <div class="sched-row"><div class="s-day">Thu May 14</div><div class="s-body"><span class="s-num t">23</span><span class="s-title">Expo Day</span><span class="badge expo">Expo</span><div class="s-sub">Share your hidden history project — monument, gallery, or exhibit</div></div></div>
+  </div>
+</div>
+ 
+ 
+<!-- ═══════════════════ PARENTS ═══════════════════ -->
+<div id="parents" class="page">
+  <div class="page-hero">
+    <h2>👨‍👩‍👧 Parent View</h2>
+    <div class="hero-sub">Weekly focus, reminders, and support</div>
+  </div>
+ 
+  <div class="section-title">At-a-Glance View</div>
+  <div class="notice">
+    <span style="font-size:1.1rem">👑</span>
+    <span>This page pulls together the weekly learning goals, family checklist items, and conversation starters so you can see the shape of the cycle at a glance.</span>
+  </div>
+ 
+  <div class="parents-grid">
+    <div class="pw-card">
+      <div class="pw-head"><span class="pw-title">Week 1 · Apr 7–10</span><span class="pw-sub">Foundations</span></div>
+      <div class="pw-body">
+        <div class="skill-block lit"><div class="skill-block-head">Literacy skills</div><p>Understanding what makes poetry poetry, using sensory details, noticing theme, and trying blackout poetry as a low-stakes entry point.</p></div>
+        <div class="skill-block thm"><div class="skill-block-head">Theme skills</div><p>Building curiosity about hidden histories, comparing "then and now," and beginning to ask stronger questions about how everyday objects connect to the past.</p></div>
+        <div class="skill-block chk"><div class="skill-block-head">Family checklist</div><ul><li>Learners will work daily in project journal</li><li>Learners will work daily in literacy journal</li><li>Daily Math Practice</li><li>Be sure to keep up with reading schedule</li><li>Have learner look at possible feedback and revise when needed</li></ul></div>
+        <div class="ask-box"><div class="ask-label">💬 Ask your learner</div><ol><li>What topic or idea are you starting to shine a light on in your literacy journal?</li><li>What object or hidden history surprised you most in your project journal this week?</li><li>What is one detail you noticed that helped you think like a poet or historian?</li></ol></div>
+      </div>
+    </div>
+    <div class="pw-card">
+      <div class="pw-head"><span class="pw-title">Week 2 · Apr 13–16</span><span class="pw-sub">Claims &amp; craft</span></div>
+      <div class="pw-body">
+        <div class="skill-block lit"><div class="skill-block-head">Literacy skills</div><p>Analyzing lyric poems, experimenting with rhyme and repetition, and giving early peer feedback to strengthen word choice and big ideas.</p></div>
+        <div class="skill-block thm"><div class="skill-block-head">Theme skills</div><p>Learning about exploration technologies, trade, colonization, and practicing how to make and support an opinion during discussion.</p></div>
+        <div class="skill-block chk"><div class="skill-block-head">Family checklist</div><ul><li>Learners will work daily in project journal</li><li>Learners will work daily in literacy journal</li><li>Daily Math Practice</li><li>Be sure to keep up with reading schedule</li><li>Have learner look at possible feedback and revise when needed</li></ul></div>
+        <div class="ask-box"><div class="ask-label">💬 Ask your learner</div><ol><li>What theme are you trying to show in your lyric poem?</li><li>What did you learn about trade, colonization, or technology that felt important or complicated?</li><li>What feedback did you get this week, and how did it change your thinking or your writing?</li></ol></div>
+      </div>
+    </div>
+    <div class="pw-card">
+      <div class="pw-head"><span class="pw-title">Week 3 · Apr 20–23</span><span class="pw-sub">Evidence</span></div>
+      <div class="pw-body">
+        <div class="skill-block lit"><div class="skill-block-head">Literacy skills</div><p>Exploring symbolism and free verse, reading closely for message, and revising poems with help from feedback partners.</p></div>
+        <div class="skill-block thm"><div class="skill-block-head">Theme skills</div><p>Becoming "history detectives," distinguishing primary and secondary sources, and using evidence to support claims about hidden histories.</p></div>
+        <div class="skill-block chk"><div class="skill-block-head">Family checklist</div><ul><li>Learners will work daily in project journal</li><li>Learners will work daily in literacy journal</li><li>Daily Math Practice</li><li>Be sure to keep up with reading schedule</li><li>Have learner look at possible feedback and revise when needed</li></ul></div>
+        <div class="ask-box"><div class="ask-label">💬 Ask your learner</div><ol><li>What symbol did you choose in your free verse poem, and what deeper meaning does it carry?</li><li>What hidden history are you researching, and why does it matter?</li><li>What evidence or fact from your project journal helped you understand your topic better?</li></ol></div>
+      </div>
+    </div>
+    <div class="pw-card">
+      <div class="pw-head"><span class="pw-title">Week 4 · Apr 27–30</span><span class="pw-sub">Storytelling</span></div>
+      <div class="pw-body">
+        <div class="skill-block lit"><div class="skill-block-head">Literacy skills</div><p>Studying narrative poems, creating poems with plot and voice, and improving sequence, pacing, and detail through revision.</p></div>
+        <div class="skill-block thm"><div class="skill-block-head">Theme skills</div><p>Choosing how to tell a hidden-history story, researching supportive sources, and practicing respectful disagreement in discussion.</p></div>
+        <div class="skill-block chk"><div class="skill-block-head">Family checklist</div><ul><li>Learners will work daily in project journal</li><li>Learners will work daily in literacy journal</li><li>Daily Math Practice</li><li>Be sure to keep up with reading schedule</li><li>Have learner look at possible feedback and revise when needed</li></ul></div>
+        <div class="ask-box"><div class="ask-label">💬 Ask your learner</div><ol><li>What story is happening in your narrative poem?</li><li>Which project format did you choose for theme workshop, and why does it fit your hidden history?</li><li>What did you plan or sketch this week that you are excited to build or create next?</li></ol></div>
+      </div>
+    </div>
+    <div class="pw-card">
+      <div class="pw-head"><span class="pw-title">Week 5 · May 4–7</span><span class="pw-sub">Polish</span></div>
+      <div class="pw-body">
+        <div class="skill-block lit"><div class="skill-block-head">Literacy skills</div><p>Writing golden shovel poems, making thoughtful craft choices, and using peer feedback to polish final pieces.</p></div>
+        <div class="skill-block thm"><div class="skill-block-head">Theme skills</div><p>Outlining projects, refining claims, giving and receiving feedback, and preparing presentations that combine research with clear communication.</p></div>
+        <div class="skill-block chk"><div class="skill-block-head">Family checklist</div><ul><li>Learners will work daily in project journal</li><li>Learners will work daily in literacy journal</li><li>Daily Math Practice</li><li>Be sure to keep up with reading schedule</li><li>Have learner look at possible feedback and revise when needed</li></ul></div>
+        <div class="ask-box"><div class="ask-label">💬 Ask your learner</div><ol><li>What line, image, or word choice are you most proud of in your poetry this week?</li><li>What is your claim in theme workshop, and how are you making it stronger?</li><li>What feedback helped you improve your project or poem before the final stretch?</li></ol></div>
+      </div>
+    </div>
+    <div class="pw-card">
+      <div class="pw-head"><span class="pw-title">Week 6 · May 11–14</span><span class="pw-sub">Celebrate &amp; share</span></div>
+      <div class="pw-body">
+        <div class="skill-block lit"><div class="skill-block-head">Literacy skills</div><p>Reflecting on growth as writers, sharing favorite poems aloud during cohort campfire days, and celebrating voice, revision, and risk-taking.</p></div>
+        <div class="skill-block thm"><div class="skill-block-head">Theme skills</div><p>Final discussion, presentation rehearsal, Expo prep, and confidently sharing a polished hidden-history project with an audience.</p></div>
+        <div class="skill-block chk"><div class="skill-block-head">Family checklist</div><ul><li>Learners will work daily in project journal</li><li>Learners will work daily in literacy journal</li><li>Daily Math Practice</li><li>Be sure to keep up with reading schedule</li><li>Have learner look at possible feedback and revise when needed</li></ul></div>
+        <div class="ask-box"><div class="ask-label">💬 Ask your learner</div><ol><li>Which poem or part of your writing growth are you most excited to share at campfire?</li><li>What is one big idea you want people to understand from your hidden-history project?</li><li>How have you grown this cycle as a writer, researcher, or presenter?</li></ol></div>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="section-title">Important Dates</div>
+  <div class="dates-table-wrap">
+    <div class="dates-head">📅 Cycle 5 Key Dates</div>
+    <table class="data-table">
+      <tr><th style="width:28%">Date</th><th>Event</th></tr>
+      <tr><td><strong>Fri Apr 10</strong></td><td>Guest Speaker Series</td></tr>
+      <tr><td><strong>Tue Apr 14</strong></td><td>Deadline to sign up for Science Fair</td></tr>
+      <tr><td><strong>Fri Apr 17</strong></td><td>Exploratories</td></tr>
+      <tr><td><strong>Fri Apr 24</strong></td><td>Support Speaker Series</td></tr>
+      <tr><td><strong>Fri May 1</strong></td><td>Science Fair</td></tr>
+      <tr><td><strong>Thu May 7</strong></td><td>LS Poetry Slam</td></tr>
+      <tr><td><strong>Fri May 8</strong></td><td>LS Talent Show</td></tr>
+      <tr><td><strong>Thu May 14</strong></td><td>Cycle 5 Expo Day</td></tr>
+    </table>
+  </div>
+</div>
+ 
+<footer>Class Royalty Hub · Hidden Histories · Cycle 5 👑</footer>
+ 
+<script>
+/* ── ROSTER & ROTATION ── */
+const learners = ["Chloe","Claire","Costa","Easton","Eli C.","Eli S.","Greta","Irie","Ivy","Jayden","Josie","Julian","Leah","Lukas","Luke","Noa","Quinn","Ryan","Sophia","Viraj","Zion"];
+const rot = i => learners[((i % learners.length) + learners.length) % learners.length];
+ 
+/* ── CONSTANTS ── */
+const CS = '2026-04-07', CE = '2026-05-14';
+ 
+const RM = {
+  '2026-04-07':'pp. 1–4','2026-04-08':'pp. 5–7','2026-04-09':'pp. 11–13','2026-04-10':'pp. 15–17',
+  '2026-04-13':'pp. 18–23','2026-04-14':'pp. 25–27','2026-04-15':'pp. 31–33','2026-04-16':'pp. 34–37','2026-04-17':'Catch up!',
+  '2026-04-20':'pp. 38–45','2026-04-21':'pp. 47–49','2026-04-22':'pp. 51–55','2026-04-23':'pp. 56–63','2026-04-24':'Catch up!',
+  '2026-04-27':'pp. 65–67','2026-04-28':'pp. 70–75','2026-04-29':'pp. 77–83','2026-04-30':'pp. 85–89','2026-05-01':'Catch up!',
+  '2026-05-04':'pp. 90–93','2026-05-05':'pp. 94–95 🎉',
+  '2026-05-06':'Reading done','2026-05-07':'Reading done','2026-05-08':'Reading done',
+  '2026-05-11':'Celebrate','2026-05-12':'Final live day'
+};
+ 
+const LS = {
+  '2026-04-07':{n:1,w:1,t:'Light Up the World with Words',s:'Blackout poetry intro',br:'No breakout rooms today',co:'"Describe It, Don\'t Name It!" with sensory clues',ex:'What is poetry? Lines, stanzas, and blackout poetry',ti:'Create a blackout poem in your journal'},
+  '2026-04-08':{n:2,w:1,t:'Shining a Light on the Harlem Renaissance',s:'Modern Art Match Up',br:'Whole-group lesson'},
+  '2026-04-09':{n:3,w:1,t:'The Deeper Message',s:'Artwork connections · what is theme?',br:'Whole-group lesson'},
+  '2026-04-13':{n:4,w:2,t:'Lyric Lines and Big Ideas',s:'Read & analyze "For a Poet"',br:'No breakout rooms today'},
+  '2026-04-14':{n:5,w:2,t:'Lyric Poem Playground',s:'Rhyme Relay · group lyric poem writing',br:'Breakout rooms'},
+  '2026-04-15':{n:6,w:2,t:'Poetry Jam: Lyric Edition',s:'Sound Sketch',br:'Whole-group jam'},
+  '2026-04-16':{n:7,w:2,t:'Gathering Feedback: Lyric Poems',s:'Partner feedback · revise lyric poems',br:'Feedback breakouts'},
+  '2026-04-20':{n:8,w:3,t:'Through the Poet\'s Eyes',s:'"Mother to Son" by Langston Hughes',br:'No breakout rooms today'},
+  '2026-04-21':{n:9,w:3,t:'Discovering Symbolism',s:'Match the Mood · free verse practice',br:'Breakout rooms'},
+  '2026-04-22':{n:10,w:3,t:'Poetry Jam: Free Verse Edition',s:'Picture to Poem',br:'Whole-group jam'},
+  '2026-04-23':{n:11,w:3,t:'Gathering Feedback: Free Verse Poems',s:'Partner feedback · revise free verse',br:'Feedback breakouts'},
+  '2026-04-27':{n:12,w:4,t:'Once Upon a Poem',s:'"A Dark Date for Josh" by Nikki Grimes',br:'No breakout rooms today'},
+  '2026-04-28':{n:13,w:4,t:'Poetry with a Plot',s:'Unlikely Voices · narrative poem writing',br:'Breakout rooms'},
+  '2026-04-29':{n:14,w:4,t:'Poetry Jam: Narrative Edition',s:'What Were They Trying to Say?',br:'Whole-group jam'},
+  '2026-04-30':{n:15,w:4,t:'Gathering Feedback: Narrative Poems',s:'Partner feedback · revise narrative',br:'Feedback breakouts'},
+  '2026-05-04':{n:16,w:5,t:'Strike Gold in a Poem',s:'"Common Denominator" by Nikki Grimes',br:'No breakout rooms today'},
+  '2026-05-05':{n:17,w:5,t:'Striking Gold!',s:'"Life Doesn\'t Frighten Me" · golden shovel',br:'Breakout rooms'},
+  '2026-05-06':{n:18,w:5,t:'Poetry Jam: Golden Shovel Edition',s:'Modern Treasures',br:'Whole-group jam'},
+  '2026-05-07':{n:19,w:5,t:'Gathering Feedback: Golden Shovel Poems',s:'Partner feedback · revise golden shovel',br:'Feedback breakouts'},
+  '2026-05-11':{n:20,w:6,t:'Creative Storytellers',s:'Celebrate and share',br:'Celebration circles'},
+  '2026-05-12':{n:21,w:6,t:'Poetry Celebration Circles',s:'Share final pieces',br:'Celebration circles'}
+};
+ 
+const TS = {
+  '2026-04-07':{n:1,w:1,t:'Welcome to Hidden Histories',s:'Then & Now · Ada Lovelace · Kahoot',br:'No breakout rooms today',ex:'Then & Now guesses about everyday objects',ex2:'Ada Lovelace and the hidden history of computers',ti:'Become a historian and reflect on hidden histories inside everyday objects'},
+  '2026-04-08':{n:2,w:1,t:'Setting the Stage',s:'5W1H research · artifact: sundial',br:'Research breakout groups'},
+  '2026-04-09':{n:3,w:1,t:'Curiosity & Competition',s:'Nuts for Nutmeg · Convince the Monarch',br:'Debate prep groups'},
+  '2026-04-13':{n:4,w:2,t:'Technologies',s:'Astrolabe, caravel, maps, compass',br:'No breakout rooms today'},
+  '2026-04-14':{n:5,w:2,t:'How Trade Remixed the World',s:'Make Your Lunch Challenge · Columbian Exchange',br:'Breakout rooms'},
+  '2026-04-15':{n:6,w:2,t:'Meet the Taíno',s:'Colonization · Indigenous perspectives',br:'Whole-group discussion'},
+  '2026-04-16':{n:7,w:2,t:'In My Opinion',s:'Forming & sharing claims',br:'Discussion circles'},
+  '2026-04-20':{n:8,w:3,t:'Becoming History Detectives',s:'Common story vs. hidden histories',br:'No breakout rooms today'},
+  '2026-04-21':{n:9,w:3,t:'How Do Historians Know?',s:'Artifacts, visual, written sources',br:'Research groups'},
+  '2026-04-22':{n:10,w:3,t:'Primary and Secondary',s:'Research project launch',br:'Research breakouts'},
+  '2026-04-23':{n:11,w:3,t:'I Know Because…',s:'Claim + evidence',br:'Discussion breakouts'},
+  '2026-04-27':{n:12,w:4,t:'Telling Hidden Histories',s:'Monument, gallery, or exhibit?',br:'No breakout rooms today'},
+  '2026-04-28':{n:13,w:4,t:'Research Support Day',s:'Google Arts & Culture',br:'Breakout rooms'},
+  '2026-04-29':{n:14,w:4,t:'Taking Inspiration',s:'Fide\'s Story · María Berrio & Rangi Mātāmua',br:'Studio breakouts'},
+  '2026-04-30':{n:15,w:4,t:'I (Respectfully) Disagree!',s:'Respectful disagreement skills',br:'Discussion circles'},
+  '2026-05-04':{n:16,w:5,t:'Outlining',s:'Personal statement outline',br:'Breakout rooms'},
+  '2026-05-05':{n:17,w:5,t:'Giving Feedback',s:'Partner feedback meetings',br:'Feedback breakouts'},
+  '2026-05-06':{n:18,w:5,t:'Wrapping It Up',s:'Presentation planning · Blooket!',br:'No breakout rooms'},
+  '2026-05-07':{n:19,w:5,t:'Strengthen Your Claim!',s:'Partner questioning · final prep',br:'Discussion prep breakouts'},
+  '2026-05-11':{n:20,w:6,t:'The Final Discussion',s:'More opportunities or more problems?',br:'Discussion circles'},
+  '2026-05-12':{n:21,w:6,t:'Prisma Powers! 🎉',s:'Cycle scrapbook · appreciations',br:'Reflection circles'},
+  '2026-05-13':{n:22,w:6,t:'Expo Day Prep',s:'Project rehearsal and polishing',br:'Expo prep groups'},
+  '2026-05-14':{n:23,w:6,t:'Expo Day',s:'Share your hidden history project!',br:'Expo sharing'}
+};
+ 
+/* ── BUILD ROTATED JOB MAPS ── */
+const lDates = Object.keys(LS);
+const tDates = Object.keys(TS);
+const LJ = {}, TJ = {};
+lDates.forEach((d,i) => { LJ[d] = { rr: rot(i), ga: rot(i+1) }; });
+tDates.forEach((d,i) => { TJ[d] = { rr: rot(i), ga: rot(i+1), co: rot(i+2) }; });
+ 
+/* ── UTILS ── */
+const todayISO = () => { const n=new Date(); return `${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,'0')}-${String(n.getDate()).padStart(2,'0')}`; };
+const clamp    = d  => d<CS ? CS : d>CE ? CE : d;
+const fmtLong  = iso => { const [y,m,d]=iso.split('-').map(Number); return new Date(y,m-1,d).toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'}); };
+const fmtShort = iso => { const [y,m,d]=iso.split('-').map(Number); return new Date(y,m-1,d).toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'}); };
+const fmtLabel = iso => { const [y,m,d]=iso.split('-').map(Number); return new Date(y,m-1,d).toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'}); };
+const addDays  = (iso,n) => { const [y,m,d]=iso.split('-').map(Number); const dt=new Date(y,m-1,d); dt.setDate(dt.getDate()+n); return `${dt.getFullYear()}-${String(dt.getMonth()+1).padStart(2,'0')}-${String(dt.getDate()).padStart(2,'0')}`; };
+const getMonday = iso => { const [y,m,d]=iso.split('-').map(Number); const dt=new Date(y,m-1,d); const dy=dt.getDay(); dt.setDate(dt.getDate()+(dy===0?-6:1-dy)); return `${dt.getFullYear()}-${String(dt.getMonth()+1).padStart(2,'0')}-${String(dt.getDate()).padStart(2,'0')}`; };
+const weekNum  = iso => { const [sy,sm,sd]=CS.split('-').map(Number); const [y,m,d]=iso.split('-').map(Number); return Math.floor((new Date(y,m-1,d)-new Date(sy,sm-1,sd))/86400000/7)+1; };
+ 
+/* ── TAB SWITCHER ── */
+function showTab(id, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (btn) btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+ 
+/* ── JOBS TABLES ── */
+const wkBreaks = { '2026-04-07':'Week 1','2026-04-13':'Week 2','2026-04-20':'Week 3','2026-04-27':'Week 4','2026-05-04':'Week 5','2026-05-11':'Week 6' };
+ 
+function buildJobTable(dates, jobMap, cols, headTitle, headClass, todayClass, nameClasses) {
+  const display = clamp(todayISO());
+  let rows = '';
+  dates.forEach((d,i) => {
+    if (wkBreaks[d]) rows += `<tr class="wk-sep"><td colspan="${cols.length+1}">${wkBreaks[d]}</td></tr>`;
+    const j = jobMap[d];
+    const isT = d === display;
+    const cells = cols.map(c => `<td class="${nameClasses[c]}">${j[c]}</td>`).join('');
+    rows += `<tr class="${isT ? todayClass : ''}" ><td><strong>${fmtLabel(d)}</strong></td>${cells}</tr>`;
+  });
+  const ths = cols.map(c => `<th>${c==='rr'?'Ready Rituals':c==='ga'?'Goal + Agenda':'Cohost'}</th>`).join('');
+  return `<div class="card"><div class="card-header ${headClass}">${headTitle}</div><div class="scroll-x"><table class="data-table"><tr><th style="width:24%">Date</th>${ths}</tr>${rows}</table></div></div>`;
+}
+ 
+/* ── RENDER HOME ── */
+function renderHome() {
+  const actual  = todayISO();
+  const display = clamp(actual);
+  const l  = LS[display];
+  const th = TS[display];
+  const lj = LJ[display];
+  const tj = TJ[display];
+  const reading = RM[display] || 'Check schedule';
+  const wk = l?.w || th?.w || weekNum(display);
+  const sessLabel = l ? `Session ${l.n}` : th ? `Theme ${th.n}` : '';
+ 
+  /* today banner */
+  const banner = `
+    <div class="today-banner">
+      <div>
+        <div class="today-date">Today — ${fmtLong(display)}</div>
+        <div class="today-sub">Hidden Histories · Cycle 5</div>
+      </div>
+      <div class="week-badge">Week ${wk}${sessLabel ? ' · '+sessLabel : ''}</div>
+    </div>`;
+ 
+  /* reading */
+  const readBar = `
+    <div class="reading-bar">
+      <span style="font-size:1.5rem">📖</span>
+      <div>
+        <div class="reading-label">Reading assignment</div>
+        <div class="reading-pages">${reading}</div>
+      </div>
+    </div>`;
+ 
+  /* daily practice */
+  const dp = `
+    <div class="daily-practice">
+      <div class="dp-head">✅ Daily Practice</div>
+      <div class="dp-list">
+        <div class="dp-item">📓 Project journal practice</div>
+        <div class="dp-item">📝 Literacy journal practice</div>
+        <div class="dp-item">🔢 Daily Math Practice</div>
+        <div class="dp-item">📅 Check reading schedule</div>
+      </div>
+    </div>`;
+ 
+  /* session boxes */
+  const litBox = l
+    ? `<div class="session-box lit"><div class="session-box-head">📚 Literacy Lab</div><div class="session-box-body"><div class="session-title">${l.t}</div><div class="session-info">${l.br}</div></div></div>`
+    : `<div class="session-box lit"><div class="session-box-head">📚 Literacy Lab</div><div class="session-box-body"><div class="session-title" style="color:#9CA3AF">No live session today</div></div></div>`;
+  const thmBox = th
+    ? `<div class="session-box thm"><div class="session-box-head">🎨 Theme Workshop</div><div class="session-box-body"><div class="session-title">${th.t}</div><div class="session-info">${th.br}</div></div></div>`
+    : `<div class="session-box thm"><div class="session-box-head">🎨 Theme Workshop</div><div class="session-box-body"><div class="session-title" style="color:#9CA3AF">No live session today</div></div></div>`;
+ 
+  /* session overviews */
+  const litOv = l ? `
+    <div class="ov-card lit">
+      <div class="ov-card-head">📚 Literacy Lab</div>
+      <div class="ov-card-body">
+        <div class="ov-tag lit">Session ${l.n} · ${l.t}</div>
+        ${l.co ? `<div class="ov-item"><span class="ov-dot l"></span><span><strong>Connect:</strong> ${l.co}</span></div>` : ''}
+        ${l.ex ? `<div class="ov-item"><span class="ov-dot l"></span><span><strong>Explore:</strong> ${l.ex}</span></div>` : ''}
+        ${l.ti ? `<div class="ov-item"><span class="ov-dot l"></span><span><strong>Try It Out:</strong> ${l.ti}</span></div>` : ''}
+      </div>
+    </div>` : '';
+  const thmOv = th ? `
+    <div class="ov-card thm">
+      <div class="ov-card-head">🎨 Theme Workshop</div>
+      <div class="ov-card-body">
+        <div class="ov-tag thm">Session ${th.n} · ${th.t}</div>
+        ${th.ex  ? `<div class="ov-item"><span class="ov-dot t"></span><span><strong>Explore:</strong> ${th.ex}</span></div>` : ''}
+        ${th.ex2 ? `<div class="ov-item"><span class="ov-dot t"></span><span><strong>Explain:</strong> ${th.ex2}</span></div>` : ''}
+        ${th.ti  ? `<div class="ov-item"><span class="ov-dot t"></span><span><strong>Try It Out:</strong> ${th.ti}</span></div>` : ''}
+      </div>
+    </div>` : '';
+ 
+  /* jobs */
+  const ljCard = lj ? `
+    <div class="job-card lit">
+      <div class="job-card-head">📚 Literacy Lab</div>
+      <div class="job-card-body">
+        <div class="job-row"><span class="j-role">Ready Rituals</span><span class="j-name lit">${lj.rr}</span></div>
+        <div class="job-row"><span class="j-role">Goal + Agenda</span><span class="j-name lit">${lj.ga}</span></div>
+      </div>
+    </div>` : '';
+  const tjCard = tj ? `
+    <div class="job-card thm">
+      <div class="job-card-head">🎨 Theme Workshop</div>
+      <div class="job-card-body">
+        <div class="job-row"><span class="j-role">Ready Rituals</span><span class="j-name thm">${tj.rr}</span></div>
+        <div class="job-row"><span class="j-role">Goal + Agenda</span><span class="j-name thm">${tj.ga}</span></div>
+        <div class="job-row"><span class="j-role">Cohost</span><span class="j-name co">${tj.co}</span></div>
+      </div>
+    </div>` : '';
+ 
+  /* week overview */
+  const mon = getMonday(display);
+  let weekRows = '';
+  for (let i = 0; i < 5; i++) {
+    const d = addDays(mon, i);
+    if (d < CS || d > CE) continue;
+    const li = LS[d], ti = TS[d], isT = (d === display);
+    weekRows += `
+      <div class="week-day${isT ? ' is-today' : ''}">
+        <div class="week-day-header">
+          <span class="wd-name${isT ? ' today' : ''}">${fmtShort(d)}${isT ? ' ★' : ''}</span>
+          <span class="wd-read">📖 ${RM[d] || '—'}</span>
+          <span class="wd-label">${isT ? 'Today' : ''}</span>
+        </div>
+        <div class="week-sessions">
+          <div class="ws lit">
+            <div class="ws-label">Literacy Lab</div>
+            ${li ? `<div class="ws-name">${li.t}</div><div class="ws-info">${li.br}</div>` : '<div class="ws-none">No live session</div>'}
+          </div>
+          <div class="ws thm">
+            <div class="ws-label">Theme Workshop</div>
+            ${ti ? `<div class="ws-name">${ti.t}</div><div class="ws-info">${ti.br}</div>` : '<div class="ws-none">No live session</div>'}
+          </div>
+        </div>
+      </div>`;
+  }
+ 
+  /* important dates */
+  const dates = `
+    <div class="dates-table-wrap">
+      <div class="dates-head">📅 Important dates for this cycle</div>
+      <table class="data-table">
+        <tr><th style="width:28%">Date</th><th>Event</th></tr>
+        <tr><td><strong>Fri Apr 10</strong></td><td>Guest Speaker Series</td></tr>
+        <tr><td><strong>Tue Apr 14</strong></td><td>Deadline to sign up for Science Fair</td></tr>
+        <tr><td><strong>Fri Apr 17</strong></td><td>Exploratories</td></tr>
+        <tr><td><strong>Fri Apr 24</strong></td><td>Support Speaker Series</td></tr>
+        <tr><td><strong>Fri May 1</strong></td><td>Science Fair</td></tr>
+        <tr><td><strong>Thu May 7</strong></td><td>LS Poetry Slam</td></tr>
+        <tr><td><strong>Fri May 8</strong></td><td>LS Talent Show</td></tr>
+        <tr><td><strong>Thu May 14</strong></td><td>Cycle 5 Expo Day</td></tr>
+      </table>
+    </div>`;
+ 
+  document.getElementById('today-content').innerHTML = `
+    ${banner}
+    ${readBar}
+    ${dp}
+ 
+    <div class="section-title">Today's Live Sessions</div>
+    <div class="session-grid">${litBox}${thmBox}</div>
+ 
+    <div class="section-title">Session Overviews</div>
+    <div class="ov-grid">${litOv}${thmOv}</div>
+ 
+    <div class="section-title">This Week</div>
+    <div class="week-view">
+      <div class="week-view-head">👑 Week ${wk} — ${fmtShort(mon)} to ${fmtShort(addDays(mon,4))}</div>
+      ${weekRows}
+    </div>
+ 
+    <div class="section-title">Important Dates</div>
+    ${dates}
+ 
+    <div class="section-title">Get the Book</div>
+    <div class="link-card">
+      <div>
+        <div class="link-label">One Last Word — digital copy</div>
+        <a href="https://drive.google.com/file/d/1UUTqs_-cqNuvgkLL2wkO8RVBttoRMErt/view" target="_blank">Open in Google Drive ↗</a>
+      </div>
+      <div class="link-note">Reading wraps up by Tuesday, May 5</div>
+    </div>
+    <div class="section-title">Feedback Partners</div>
+    <div class="card">
+      <div class="card-header gold">👑 Feedback Partner Groups</div>
+      <div class="card-body">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.65rem;">
+          <div style="background:#F8F9FB;border:1.5px solid var(--border);border-radius:8px;padding:.65rem .85rem;">
+            <div style="font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.35rem;">Group 1</div>
+            <div style="font-weight:700;font-size:.88rem;color:var(--ink);">Ryan, Luke &amp; Quinn</div>
+          </div>
+          <div style="background:#F8F9FB;border:1.5px solid var(--border);border-radius:8px;padding:.65rem .85rem;">
+            <div style="font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.35rem;">Group 2</div>
+            <div style="font-weight:700;font-size:.88rem;color:var(--ink);">Costa &amp; Jayden</div>
+          </div>
+          <div style="background:#F8F9FB;border:1.5px solid var(--border);border-radius:8px;padding:.65rem .85rem;">
+            <div style="font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.35rem;">Group 3</div>
+            <div style="font-weight:700;font-size:.88rem;color:var(--ink);">Zion &amp; Noa</div>
+          </div>
+          <div style="background:#F8F9FB;border:1.5px solid var(--border);border-radius:8px;padding:.65rem .85rem;">
+            <div style="font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.35rem;">Group 4</div>
+            <div style="font-weight:700;font-size:.88rem;color:var(--ink);">Chloe &amp; Sophia</div>
+          </div>
+          <div style="background:#F8F9FB;border:1.5px solid var(--border);border-radius:8px;padding:.65rem .85rem;">
+            <div style="font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.35rem;">Group 5</div>
+            <div style="font-weight:700;font-size:.88rem;color:var(--ink);">Leah &amp; Claire</div>
+          </div>
+          <div style="background:#F8F9FB;border:1.5px solid var(--border);border-radius:8px;padding:.65rem .85rem;">
+            <div style="font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.35rem;">Group 6</div>
+            <div style="font-weight:700;font-size:.88rem;color:var(--ink);">Julian, Easton &amp; Lukas</div>
+          </div>
+          <div style="background:#F8F9FB;border:1.5px solid var(--border);border-radius:8px;padding:.65rem .85rem;">
+            <div style="font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.35rem;">Group 7</div>
+            <div style="font-weight:700;font-size:.88rem;color:var(--ink);">Ivy &amp; Irie</div>
+          </div>
+          <div style="background:#F8F9FB;border:1.5px solid var(--border);border-radius:8px;padding:.65rem .85rem;">
+            <div style="font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.35rem;">Group 8</div>
+            <div style="font-weight:700;font-size:.88rem;color:var(--ink);">Eli C. &amp; Viraj</div>
+          </div>
+          <div style="background:#F8F9FB;border:1.5px solid var(--border);border-radius:8px;padding:.65rem .85rem;">
+            <div style="font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.35rem;">Group 9</div>
+            <div style="font-weight:700;font-size:.88rem;color:var(--ink);">Greta &amp; Eli S.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+ 
+
+/* ── AUTO HIGHLIGHT CURRENT DAY IN READING CALENDAR ── */
+function highlightTodayInCalendar() {
+  const today = new Date();
+  const month = today.toLocaleString('en-US', { month: 'short' });
+  const day = today.getDate();
+  const todayText = `${month} ${day}`;
+
+  document.querySelectorAll('.cal td').forEach(cell => {
+    cell.classList.remove('cal-today');
+    const dateText = cell.querySelector('.cal-dn')?.textContent || '';
+    if (dateText.includes(todayText)) {
+      cell.classList.add('cal-today');
+    }
+  });
+}
+
+/* ── INIT ── */
+document.addEventListener('DOMContentLoaded', () => {
+  renderHome();
+  highlightTodayInCalendar();
+});
+</script>
+</body>
+</html>
